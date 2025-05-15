@@ -1,0 +1,1 @@
+# Funciones de apoyo, como validación de entradas, añadir formato, etc.
