@@ -4,6 +4,7 @@
 from src.interface.utils import validate_input, validate_float_input, validate_int_input, vector_input
 from src.operations.tema1.prod_esc import dot_product
 from src.operations.tema1.prod_vec import cross_product
+from src.operations.utils import graph2D_vectors, graph3D_vectors
 import numpy as np
 
 # Operaciones disponibles
@@ -43,7 +44,8 @@ def tema_1():
 
     elif choice == 1:
         # Obtener datos del usuario
-        n = validate_int_input("Escribe el número de dimensiones de tus vectores: ")
+        # El producto cruz solo se puede obtener de vectores de 3 dimensiones
+        n = 3
         vectores = []
         # Obten los valores de los 2 vectores
         for i in range(2):
@@ -54,6 +56,13 @@ def tema_1():
         # Llamar a la función para el producto vectorial
         print("\nEl producto vectorial es:")
         print(np.array(cross_product(vectores)))
+
+        # Crear una lista de los 3 vectores analizados
+        vectores.append(cross_product(vectores))
+
+        ans = validate_input("Quieres visualizar los vectores? (y/n) ", ["y", "n"])
+        if ans == "y":
+            graph3D_vectors(vectores, "Producto vectorial")
 
     elif choice == 2:
         # Llamar a la función para el triple producto escalar
