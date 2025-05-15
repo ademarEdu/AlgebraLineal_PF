@@ -3,9 +3,13 @@
 def validate_input(prompt, valid_options):
     """
     Función para validar la entrada del usuario.
-    :param prompt: Mensaje que se mostrará al usuario.
-    :param valid_options: Opciones válidas para la entrada.
-    :return: Entrada válida del usuario.
+
+    Parameters:
+        prompt (str): Mensaje que se mostrará al usuario.
+        valid_options (list): Opciones válidas para la entrada.
+
+    Returns:  
+        str: Entrada válida del usuario.
     """
     while True:
         user_input = input(prompt)
