@@ -1,7 +1,10 @@
 # Funcionalidad del CLI para el tema 1
 
 # Importar las funciones necesarias
-from src.interface.utils import validate_input
+from src.interface.utils import validate_input, validate_float_input, validate_int_input, vector_input
+from src.operations.tema1.prod_esc import dot_product
+from src.operations.tema1.prod_vec import cross_product
+import numpy as np
 
 # Operaciones disponibles
 operaciones = ["Producto escalar",
@@ -25,18 +28,46 @@ def tema_1():
     choice = int(choice) - 1  # Convertir a índice de lista
 
     if choice == 0:
+        # Obtener datos del usuario
+        n = validate_int_input("Escribe el número de dimensiones de tus vectores: ")
+        vectores = []
+        # Obten los valores de los 2 vectores
+        for i in range(2):
+            print(f"\nVECTOR {i+1}")
+            vec = vector_input(n)
+            vectores.append(vec)
+
         # Llamar a la función para el producto escalar
-        pass
+        print("\nEl producto escalar es:")
+        print(np.array(dot_product(vectores)))
+
     elif choice == 1:
+        # Obtener datos del usuario
+        n = validate_int_input("Escribe el número de dimensiones de tus vectores: ")
+        vectores = []
+        # Obten los valores de los 2 vectores
+        for i in range(2):
+            print(f"\nVECTOR {i+1}")
+            vec = vector_input(n)
+            vectores.append(vec)
+
         # Llamar a la función para el producto vectorial
-        pass
+        print("\nEl producto vectorial es:")
+        print(np.array(cross_product(vectores)))
+
     elif choice == 2:
         # Llamar a la función para el triple producto escalar
         pass
+
     elif choice == 3:
         # Llamar a la función para el triple producto punto
         pass
+
     elif choice == 4:
         # Regresar al menú principal
         return True
+
+    if validate_input("Quieres calcular más operaciones? (y/n): ", ["y", "n"]) == "y":
+        return True
+
     return False
