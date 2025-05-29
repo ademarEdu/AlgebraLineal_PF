@@ -69,16 +69,35 @@ def tema_1():
 
     elif choice == 2:
         # Llamar a la función para el triple producto escalar
-        pass
-
-    elif choice == 3:
-        # Llamar a la función para el triple producto vectorial
-                # El producto cruz solo se puede obtener de vectores de 3 dimensiones
+        # El producto cruz solo se puede obtener de vectores de 3 dimensiones
         n = 3
         vectores = []
 
         # Obtener datos del usuario
-        print("\nEl triple producto punto se calculará de la forma: V1 x (V2 x V3)")
+        print("\nEl triple producto punto se calculará de la forma: V1 . (V2 x V3)")
+        print("Todos los vectores deben ser tridimensionales")
+        # Obten los datos del 1 vector
+        print(f"\nVECTOR {1}")
+        vectores.append(vector_input(n))
+
+        # Obten los valores del 2 y 3 vector
+        for i in range(2):
+            print(f"\nVECTOR {i+2}")
+            vec = vector_input(n)
+            vectores.append(vec)
+
+        # Llamar a la función para el triple producto vectorial
+        print("\nEl triple producto escalar es:")
+        print(np.array(triple_dot_product(vectores)))
+
+    elif choice == 3:
+        # Llamar a la función para el triple producto vectorial
+        # El producto cruz solo se puede obtener de vectores de 3 dimensiones
+        n = 3
+        vectores = []
+
+        # Obtener datos del usuario
+        print("\nEl triple producto cruz se calculará de la forma: V1 x (V2 x V3)")
         print("Todos los vectores deben ser tridimensionales")
         # Obten los datos del 1 vector
         print(f"\nVECTOR {1}")
