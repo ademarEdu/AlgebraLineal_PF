@@ -4,6 +4,8 @@
 from src.interface.utils import validate_input, validate_float_input, validate_int_input, vector_input
 from src.operations.tema1.prod_esc import dot_product
 from src.operations.tema1.prod_vec import cross_product
+from src.operations.tema1.triple_prod_esc import triple_dot_product
+from src.operations.tema1.triple_prod_vec import triple_cross_product
 from src.operations.utils import graph2D_vectors, graph3D_vectors
 import numpy as np
 
@@ -11,7 +13,7 @@ import numpy as np
 operaciones = ["Producto escalar",
     "Producto vectorial",
     "Triple producto escalar",
-    "Triple producto punto",
+    "Triple producto vectorial",
     "Regresar"
     ]
 
@@ -43,6 +45,7 @@ def tema_1():
         print(np.array(dot_product(vectores)))
 
     elif choice == 1:
+        # Llamar a la función del producto vectorial
         # Obtener datos del usuario
         # El producto cruz solo se puede obtener de vectores de 3 dimensiones
         n = 3
@@ -69,8 +72,34 @@ def tema_1():
         pass
 
     elif choice == 3:
-        # Llamar a la función para el triple producto punto
-        pass
+        # Llamar a la función para el triple producto vectorial
+                # El producto cruz solo se puede obtener de vectores de 3 dimensiones
+        n = 3
+        vectores = []
+
+        # Obtener datos del usuario
+        print("\nEl triple producto punto se calculará de la forma: V1 x (V2 x V3)")
+        print("Todos los vectores deben ser tridimensionales")
+        # Obten los datos del 1 vector
+        print(f"\nVECTOR {1}")
+        vectores.append(vector_input(n))
+
+        # Obten los valores del 2 y 3 vector
+        for i in range(2):
+            print(f"\nVECTOR {i+2}")
+            vec = vector_input(n)
+            vectores.append(vec)
+
+        # Llamar a la función para el triple producto vectorial
+        print("\nEl triple producto vectorial es:")
+        print(np.array(triple_cross_product(vectores)))
+
+        # Crear una lista de los 3 vectores analizados
+        vectores.append(triple_cross_product(vectores))
+
+        ans = validate_input("Quieres visualizar los vectores? (y/n) ", ["y", "n"])
+        if ans == "y":
+            graph3D_vectors(vectores, "Triple producto vectorial")
 
     elif choice == 4:
         # Regresar al menú principal

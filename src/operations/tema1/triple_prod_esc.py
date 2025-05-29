@@ -1,4 +1,4 @@
-# Función para realizar el triple producto vectorial
+# Función para realizar el triple producto escalar
 
 from src.operations.tema1.prod_esc import dot_product
 from src.operations.tema1.prod_vec import cross_product
