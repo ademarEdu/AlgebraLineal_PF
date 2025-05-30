@@ -32,11 +32,13 @@ def tema_2():
                 functions.append(func)
             except Exception as e:
                 print("Función inválida:", e)
-
         # Graficar las funciones
         graph_functions(functions, title="Funciones")
-        return False
     elif choice == 1:
         # Regresar al menú principal
         return True
+
+    if validate_input("Quieres calcular más operaciones? (y/n): ", ["y", "n"]) == "y":
+        return True
+        
     return False

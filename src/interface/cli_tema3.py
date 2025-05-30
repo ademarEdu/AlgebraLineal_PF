@@ -50,4 +50,8 @@ def tema_3():
     elif choice == 1:
         # Regresar al menú principal
         return True
+
+    if validate_input("Quieres calcular más operaciones? (y/n): ", ["y", "n"]) == "y":
+        return True
+        
     return False
