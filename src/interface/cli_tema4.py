@@ -2,9 +2,12 @@
 
 # Importar las funciones necesarias
 from src.interface.utils import validate_input
+from src.operations.tema4.combinacion import combinacion_lineal_check
+from src.operations.tema4.dep_ind_lineal import verificar_dependencia
+from src.operations.tema4.generador import generar_ecuacion_conj_generador
 
 # Operaciones disponibles
-operaciones = ["Conjunto generador", "Dependencia lineal", "Independencia lineal", "Regresar"]
+operaciones = ["Combinación lineal", "Conjunto generador", "Dependencia o Independencia lineal", "Regresar"]
 
 def tema_4():
     print("\nHas escogido el tema 4\n")
@@ -20,15 +23,22 @@ def tema_4():
     choice = int(choice) - 1  # Convertir a índice de lista
 
     if choice == 0:
-        # Llamar a la función para el conjunto generador
-        pass
+        # Llamar a la función para la combinación lineal
+        combinacion_lineal_check()
+
     elif choice == 1:
-        # Llamar a la función para la dependencia lineal
-        pass
+        # Llamar a la función para el conjunto generador
+      generar_ecuacion_conj_generador()
+
     elif choice == 2:
         # Llamar a la función para la independencia lineal
-        pass
+        verificar_dependencia()
+
     elif choice == 3:
         # Regresar al menú principal
         return True
+    
+    if validate_input("Quieres calcular más operaciones? (y/n): ", ["y", "n"]) == "y":
+        return True
+    
     return False

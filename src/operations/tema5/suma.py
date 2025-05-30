@@ -1,24 +1,13 @@
-def suma(mA, mB):
-    if len(mA) == len(mB) and len(mA[0]) == len(mB[0]):
-    
-        m3 = []
-        for r in range(len(mA)):
-            m3.append([])
-            for c in range(len(mA[0])):
-                m3[r].append(mA[r][c] + mB[r][c])
-        return m3
-    else:   
-        return None
-matrizS = suma(matrizA, matrizB)    
-if matrizS == None:
-    print("No se puede realizar la suma")
-    print()
+def suma(matrizA, matrizB):
+    if len(matrizA) == len(matrizB) and len(matrizA[0]) == len(matrizB[0]):
+        print("PRODUCTO SUMA")
+        for r in range(len(matrizA)):
+            print("[", end="")
+            for c in range(len(matrizA[0])):
+                resultado = matrizA[r][c] + matrizB[r][c]
+                print("{:8.2f}".format(resultado), end=" ")
+            print("]")
+        print()
+    else:
+        print("No se puede realizar la suma: dimensiones incompatibles.\n")
 
-else:
-    print("PRODUCTO SUMA")
-    for r in matrizS:
-        print("[", end="")
-        for elemento in r:
-            print("{:8.2f}" .format(elemento), end=" ")
-        print("]")
-        print
