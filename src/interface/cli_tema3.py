@@ -45,7 +45,6 @@ def tema_3():
         solutions = gauss_jordan_solve(equations)
         for i in range(n):
             print(f"\nx{i+1} = {solutions[i]}")
-        return False
 
     elif choice == 1:
         # Regresar al menú principal
@@ -53,5 +52,5 @@ def tema_3():
 
     if validate_input("Quieres calcular más operaciones? (y/n): ", ["y", "n"]) == "y":
         return True
-        
+
     return False
