@@ -14,7 +14,7 @@ temas = ["Producto escalar, vectorial, triple producto escalar y triple producto
     "Gráfica de funciones.",
     "Sistemas de ecuaciones lineales.",
     "Conjunto generador, dependencia e independencia lineal entre vectores.",
-    "Operaciones básicas de álgebra lineal (suma, resta, producto escalar, multiplicación, inversa y transpuesta de matrices) y transformaciones lineales.",
+    "Operaciones básicas de álgebra lineal (suma, resta, producto escalar, multiplicación, inversa y transpuesta de matrices)",
     "Determinante de matrices.",
     "Cerrar el programa"
     ]

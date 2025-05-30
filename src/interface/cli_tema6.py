@@ -2,6 +2,7 @@
 
 # Importar las funciones necesarias
 from src.interface.utils import validate_input
+from src.operations.tema6.determinantes import llenar, gauss, det
 
 # Operaciones disponibles
 operaciones = ["Determinante de una matriz", "Regresar"]
@@ -21,8 +22,16 @@ def tema_6():
 
     if choice == 0:
         # Llamar a la función para calcular el determinante de una matriz
-        pass
+        n=int(input("Ingrese el tamaño de la matriz: "))
+        llenar(n)
+        gauss(n)
+        det(n)
+    
     elif choice == 1:
         # Regresar al menú principal
         return True
+    
+    if validate_input("Quieres calcular más operaciones? (y/n): ", ["y", "n"]) == "y":
+        return True
+    
     return False
