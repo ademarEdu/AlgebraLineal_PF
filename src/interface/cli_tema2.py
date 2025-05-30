@@ -1,7 +1,8 @@
 # Funcionalidad del CLI para el tema 2
 
 # Importar las funciones necesarias
-from src.interface.utils import validate_input
+from src.interface.utils import validate_input, validate_int_input, validate_float_input
+from src.operations.tema2.graf_funciones import graph_functions 
 
 # Operaciones disponibles
 operaciones = ["Gráfica de funciones", "Regresar"]
@@ -20,8 +21,21 @@ def tema_2():
     choice = int(choice) - 1  # Convertir a índice de lista
 
     if choice == 0:
-        # Llamar a la función para la gráfica de funciones
-        pass
+        functions = []  # Lista en donde se guardarán las funciones
+        n = validate_int_input("\n¿Cuántas funciones quieres graficar? ")
+        # Preguntar datos al usuario
+        for i in range(n):
+            func_str = input(f"Ingrese la función {i+1} en términos de x. Ejemplo: (x**2)**(0.5) + 3: ")
+            try:
+                # Crea una función lambda segura usando eval
+                func = eval(f"lambda x: {func_str}")
+                functions.append(func)
+            except Exception as e:
+                print("Función inválida:", e)
+
+        # Graficar las funciones
+        graph_functions(functions, title="Funciones")
+        return False
     elif choice == 1:
         # Regresar al menú principal
         return True
